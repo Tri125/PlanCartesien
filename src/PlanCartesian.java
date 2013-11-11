@@ -45,13 +45,16 @@ public class PlanCartesian extends JPanel {
 		g.setColor(Color.black);
         if (IsInitialiser)
         {
-        	g.drawLine(0, 0, this.getHeight(), this.getWidth());
-        	
+        	g.drawLine(10, 10, 10, this.getWidth()+10);
+        	g.drawLine(10, this.getHeight()-10, this.getWidth()-10,this.getHeight()-10);
         	
         	g.setColor(Color.red);
         	for (PointDouble temp : points) 
         	{
-        		g.fillRect( (int)temp.x * MULTIPLIER,  (int)temp.y * MULTIPLIER, RAYON, RAYON);
+        		Double x = ( (temp.x /this.axeX.y) * this.getWidth());
+        		Double y = ( (temp.y / this.axeY.y) * this.getHeight());
+        		g.fillRect( x.intValue(), this.getHeight() - y.intValue(), RAYON, RAYON);
+     
         	}
         }
 	}
